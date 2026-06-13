@@ -102,7 +102,7 @@ async def LoL(uid, unk, reg, ep):
 def HeHe(d):
     return d
 
-@FAHHHH.route('/Bmw')
+@FAHHHH.route('/info')
 def OMG():
     uid = request.args.get('uid')
     if not uid:
