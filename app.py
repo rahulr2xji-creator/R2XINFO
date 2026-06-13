@@ -18,8 +18,8 @@ G = bytes([89, 103, 38, 116, 99, 37, 68, 69, 117, 104, 54, 37, 90, 99, 94, 56])
 F = bytes([54, 111, 121, 90, 68, 114, 50, 50, 69, 51, 121, 99, 104, 106, 77, 37])
 REGNS = {"IND", "BR", "US", "SAC", "NA", "SG", "RU", "ID", "TW", "VN", "TH", "ME", "PK", "CIS", "BD", "EUROPE"}
 
-FAHHHH = Flask(__name__)
-CORS(FAHHHH)
+app = Flask(__name__)
+CORS(app)
 TOKENS = defaultdict(dict)
 UID_MEMORY = {}
 
@@ -102,7 +102,7 @@ async def LoL(uid, unk, reg, ep):
 def HeHe(d):
     return d
 
-@FAHHHH.route('/info')
+@app.route('/info')
 def OMG():
     uid = request.args.get('uid')
     if not uid:
@@ -127,7 +127,7 @@ def OMG():
     
     return jsonify({"error": "UID not found in any region."}), 404
 
-@FAHHHH.route('/refresh', methods=['GET','POST'])
+@app.route('/refresh', methods=['GET','POST'])
 def WTF():
     try:
         asyncio.run(GaY())
@@ -140,6 +140,6 @@ async def xD():
     asyncio.create_task(Gsu())
 
 asyncio.run(xD())
-FAHHHH.run()
+app.run()
 #Owner : @vaibhavff570
 #Join : @vaibhavapix, @vaibhavapisx
